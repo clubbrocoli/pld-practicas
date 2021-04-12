@@ -6,10 +6,10 @@
 
 + Descripción: 2D Top-Down party game en el que los jugadores compiten por dar más abrazos empujando y moviendose.
 + ¿Para quíen?: El juego está dirigido a todos los públicos que quieran jugar con dos o más amigos en el mismo dispositivo. Especialmente hecho para jugar casualmente en fiestas con personas de todas las edades.
-What—Provide a game summary. What is this game about? Include a concise description of the gameplay.
-How—Explain how this game will be awesome. Mention “back of the box” items like new/novel mechanics or gameplay features.
-Explain what platform this game is for. Will it feature multiplayer capability? Does it have any technical requirements?
-Provide short descriptions of gameplay types (stealth, battle arena, driving, flying, and so on) in the game.
++ Gameplay: Bullet hell, movimiento rápido para llegar a los recursos antes que los demás.
++ Como será impresionante: ¡Compite con amor en vez de violencia! Easy to pick-up hard to master. Configurable.
++ Plataformas: PC multijugador competitivo
++ Gameplay Types: Bullet Hell, Local multiplayer
 
 ## Resumen de la historia
 
@@ -26,10 +26,6 @@ Proyectil -> Shift/Mayus
 Controles de mando -> Movimiento joystics solo movimiento.
 Dash -> L1/X
 Proyectil -> R1/Cuadrao
-
-## Requerimientos de técnicas
-Game controls—Provide an overview of the controls. List specific moves the player will be doing, but don’t go into detail on the actual moves … yet.
-Show an image of a controller, touchscreen, or keyboard with corresponding control mapping.
 
 ## Pantalla de inicio
 Título guapo guerra de abrazos.  
