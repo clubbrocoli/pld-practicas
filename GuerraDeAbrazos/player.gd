@@ -6,15 +6,22 @@ export var friction = 1000
 
 var motion = Vector2.ZERO
 var input = Vector2.ZERO
-var was_on_wall = false
+
+onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	get_input()
 
 	if input == Vector2.ZERO:
 		apply_friction(delta)
+		animationState.travel("Idle")
 	else:
 		apply_movement(delta)
+		animationTree.set("parameters/Idle/blend_position", input)
+		animationTree.set("parameters/Run/blend_position", input)
+		animationState.travel("Run")
 	
 	motion = move_and_slide(motion, Vector2.ZERO)
 
@@ -29,5 +36,5 @@ func apply_friction(delta):
 func apply_movement(delta):
 	var movement = input * accel * delta
 	motion += movement
-	if motion.length() > max_speed:
-		motion = motion.move_toward(motion.normalized() * max_speed, friction * delta + movement.length())
+	if motion.length() > max_speed * delta:
+		motion = motion.move_toward(motion.normalized() * max_speed * delta, friction * delta + movement.length())
