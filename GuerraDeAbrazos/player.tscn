@@ -132,8 +132,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-max_speed = 250
-accel = 300
+max_speed = 200
+accel = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
@@ -142,4 +142,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 26 )
 animation = "idle_front"
+frame = 5
 playing = true
