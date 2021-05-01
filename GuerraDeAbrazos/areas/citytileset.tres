@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=26 format=2]
+[gd_resource type="TileSet" load_steps=27 format=2]
 
 [ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=1]
+[ext_resource path="res://assets/tiles/roguelikeCity_magenta.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 48, 80, 0, 80, 0, 0, 48, 0 )
@@ -9,7 +10,7 @@ points = PoolVector2Array( 48, 80, 0, 80, 0, 0, 48, 0 )
 points = PoolVector2Array( 48, 32, 0, 32, 0, 0, 48, 0 )
 
 [sub_resource type="ConcavePolygonShape2D" id=3]
-segments = PoolVector2Array( 64, 24, 0, 24, 0, 24, 0, 8, 0, 8, 64, 8, 64, 8, 64, 24 )
+segments = PoolVector2Array( 64, 16, 64, 32, 64, 32, 48, 16, 48, 16, 64, 16, 64, 16, 64, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 48, 48, 0, 48, 0, 0, 48, 0 )
@@ -27,7 +28,7 @@ points = PoolVector2Array( 64, 48, 0, 48, 0, 0, 64, 0 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 12, 8, 4, 8, 4, 0, 12, 0 )
+points = PoolVector2Array( 14, 16, 2, 16, 2, 9, 14, 9 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1404,3 +1405,45 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 82/z_index = 0
+83/name = "roguelikeCity_magenta.png 83"
+83/texture = ExtResource( 2 )
+83/tex_offset = Vector2( 0, 0 )
+83/modulate = Color( 1, 1, 1, 1 )
+83/region = Rect2( 272, 0, 135, 67 )
+83/tile_mode = 2
+83/autotile/icon_coordinate = Vector2( 0, 0 )
+83/autotile/tile_size = Vector2( 16, 16 )
+83/autotile/spacing = 1
+83/autotile/occluder_map = [  ]
+83/autotile/navpoly_map = [  ]
+83/autotile/priority_map = [  ]
+83/autotile/z_index_map = [  ]
+83/occluder_offset = Vector2( 0, 0 )
+83/navigation_offset = Vector2( 0, 0 )
+83/shape_offset = Vector2( 0, 0 )
+83/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+83/shape_one_way = false
+83/shape_one_way_margin = 0.0
+83/shapes = [  ]
+83/z_index = 0
+84/name = "roguelikeCity_magenta.png 84"
+84/texture = ExtResource( 2 )
+84/tex_offset = Vector2( 0, 0 )
+84/modulate = Color( 1, 1, 1, 1 )
+84/region = Rect2( 102, 323, 50, 84 )
+84/tile_mode = 2
+84/autotile/icon_coordinate = Vector2( 0, 0 )
+84/autotile/tile_size = Vector2( 16, 16 )
+84/autotile/spacing = 1
+84/autotile/occluder_map = [  ]
+84/autotile/navpoly_map = [  ]
+84/autotile/priority_map = [  ]
+84/autotile/z_index_map = [  ]
+84/occluder_offset = Vector2( 0, 0 )
+84/navigation_offset = Vector2( 0, 0 )
+84/shape_offset = Vector2( 0, 0 )
+84/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+84/shape_one_way = false
+84/shape_one_way_margin = 0.0
+84/shapes = [  ]
+84/z_index = 0
