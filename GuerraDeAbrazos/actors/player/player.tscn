@@ -305,7 +305,7 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource( 2 )
 max_speed = 11000
 
@@ -317,7 +317,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -12 )
 texture = ExtResource( 1 )
 hframes = 24
-frame = 16
+frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleDown = SubResource( 2 )
