@@ -44,14 +44,14 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 [resource]
 0/name = "CP_V1.0.4.png 0"
 0/texture = ExtResource( 1 )
-0/tex_offset = Vector2( 0, 0 )
+0/tex_offset = Vector2( 0, -2 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 400, 131, 16, 13 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_offset = Vector2( 0, -2 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, -2 )
 0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
@@ -60,19 +60,19 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -2 )
 } ]
 0/z_index = 0
 1/name = "CP_V1.0.4.png 1"
 1/texture = ExtResource( 1 )
-1/tex_offset = Vector2( 0, 0 )
+1/tex_offset = Vector2( 0, -2 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 432, 133, 16, 11 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_offset = Vector2( 0, -2 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, -2 )
 1/shape = SubResource( 2 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
@@ -81,19 +81,19 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 2 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -2 )
 } ]
 1/z_index = 0
 2/name = "CP_V1.0.4.png 2"
 2/texture = ExtResource( 1 )
-2/tex_offset = Vector2( 0, 0 )
+2/tex_offset = Vector2( 0, -2 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 464, 128, 16, 16 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_offset = Vector2( 0, -2 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, -2 )
 2/shape = SubResource( 6 )
 2/shape_one_way = false
 2/shape_one_way_margin = 1.0
@@ -102,7 +102,7 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 6 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -2 )
 } ]
 2/z_index = 0
 3/name = "CP_V1.0.4.png 3"
@@ -191,14 +191,14 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 6/z_index = 0
 7/name = "CP_V1.0.4.png 7"
 7/texture = ExtResource( 1 )
-7/tex_offset = Vector2( 0, 0 )
+7/tex_offset = Vector2( 0, -2 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 402, 192, 12, 16 )
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
-7/shape_offset = Vector2( 0, 0 )
-7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_offset = Vector2( 0, -2 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, -2 )
 7/shape = SubResource( 11 )
 7/shape_one_way = false
 7/shape_one_way_margin = 1.0
@@ -207,19 +207,19 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 11 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -2 )
 } ]
 7/z_index = 0
 8/name = "CP_V1.0.4.png 8"
 8/texture = ExtResource( 1 )
-8/tex_offset = Vector2( 0, 0 )
+8/tex_offset = Vector2( 0, -2 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 434, 192, 12, 16 )
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
-8/shape_offset = Vector2( 0, 0 )
-8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_offset = Vector2( 0, -2 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, -2 )
 8/shape = SubResource( 12 )
 8/shape_one_way = false
 8/shape_one_way_margin = 1.0
@@ -228,7 +228,7 @@ points = PoolVector2Array( 25, 26, 0, 26, 0, 17, 25, 17 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 12 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, -2 )
 } ]
 8/z_index = 0
 9/name = "CP_V1.0.4.png 9"
