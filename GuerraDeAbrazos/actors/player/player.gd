@@ -14,6 +14,10 @@ var impulse_vel = Vector2.ZERO
 var input = Vector2.ZERO
 var last_input = Vector2.ZERO
 
+# Dash variables
+export var dash_speed = 700
+var dashing = false
+
 # Bomb constants
 export var bomb_speed = 200
 export var bomb_push = 750
@@ -29,14 +33,15 @@ func start(p_id, d_id, pos):
 # Movement
 func _physics_process(delta):
 	get_input()
-
-	if input == Vector2.ZERO:
-		apply_friction(delta)
-		change_animation("idle")
-	else:
-		apply_movement(delta)
-		last_input = input
-		change_animation("run")
+	
+	if not dashing:
+		if input == Vector2.ZERO:
+			apply_friction(delta)
+			change_animation("idle")
+		else:
+			apply_movement(delta)
+			last_input = input
+			change_animation("run")
 	
 	if impulse_vel == Vector2.ZERO:
 		velocity = move_and_slide(velocity)
@@ -49,6 +54,8 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("bomb_" + str(device_id)):
 		throw_bomb()
+	elif event.is_action_pressed("dash_" + str(device_id)) and not dashing:
+		dash()
 
 
 func get_input():
@@ -88,3 +95,14 @@ func throw_bomb():
 	b.start(global_position, 
 			last_input.angle(), bomb_speed + (velocity + impulse_vel).length() * 0.5, bomb_push)
 	get_parent().add_child(b)
+
+func dash():
+	dashing = true
+	velocity = Vector2(dash_speed, 0).rotated(last_input.angle())
+	set_collision_mask_bit(2, false)
+	$DashDuration.start()
+
+func _on_DashDuration_timeout():
+	velocity = velocity.linear_interpolate(Vector2.ZERO, 1)
+	set_collision_mask_bit(2, true)
+	dashing = false
