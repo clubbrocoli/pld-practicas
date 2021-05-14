@@ -22,6 +22,7 @@ var dashing = false
 export var bomb_speed = 200
 export var bomb_push = 750
 var Bullet = preload("res://actors/player/bomb.tscn")
+var bomb_charges = 2
 
 # Controller asignment
 func start(p_id, d_id, pos):
@@ -91,10 +92,15 @@ func change_animation(animation):
 
 # Abilities
 func throw_bomb():
-	var b = Bullet.instance()
-	b.start(global_position, 
-			last_input.angle(), bomb_speed + (velocity + impulse_vel).length() * 0.5, bomb_push)
-	get_parent().add_child(b)
+	if bomb_charges != 0:
+		bomb_charges -= 1
+		var b = Bullet.instance()
+		b.start(global_position, 
+				last_input.angle(), bomb_speed + (velocity + impulse_vel).length() * 0.5, bomb_push, get_instance_id())
+		get_parent().add_child(b)
+
+func pick_bomb():
+	bomb_charges += 1
 
 func dash():
 	dashing = true
