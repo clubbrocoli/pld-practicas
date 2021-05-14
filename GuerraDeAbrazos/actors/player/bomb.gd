@@ -40,12 +40,12 @@ func _on_PickUpArea_body_entered(body):
 func explode():
 	detonated = true
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", false)
-	$ProjectileCollision.set_deferred("disabled", true)
+	$ProjectileCollision.queue_free()
 	$ExplosionDuration.start()
 
 
 func _on_ExplosionDuration_timeout():
-	$ExplosionArea/CollisionShape2D.set_deferred("disabled", true)
+	$ExplosionArea.queue_free()
 	$PickUpArea/CollisionShape2D.set_deferred("disabled", false)
 
 func _on_VisibilityNotifier2D_screen_exited():
