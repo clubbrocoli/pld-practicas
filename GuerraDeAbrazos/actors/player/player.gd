@@ -16,6 +16,8 @@ var last_input = Vector2.ZERO
 
 # Dash variables
 export var dash_speed = 700
+export var dash_max_charges = 2
+var dash_charges = dash_max_charges
 var dashing = false
 
 # Bomb constants
@@ -99,16 +101,30 @@ func throw_bomb():
 				last_input.angle(), bomb_speed + (velocity + impulse_vel).length() * 0.5, bomb_push, get_instance_id())
 		get_parent().add_child(b)
 
+
 func pick_bomb():
 	bomb_charges += 1
 
+
 func dash():
-	dashing = true
-	velocity = Vector2(dash_speed, 0).rotated(last_input.angle())
-	set_collision_mask_bit(2, false)
-	$DashDuration.start()
+	if dash_charges == dash_max_charges:
+		$DashCD.start()
+	
+	if dash_charges > 0:
+		dash_charges -= 1
+		dashing = true
+		velocity = Vector2(dash_speed, 0).rotated(last_input.angle())
+		set_collision_mask_bit(2, false)
+		$DashDuration.start()
+
 
 func _on_DashDuration_timeout():
 	velocity = velocity.linear_interpolate(Vector2.ZERO, 1)
 	set_collision_mask_bit(2, true)
 	dashing = false
+
+
+func _on_DashCD_timeout():
+	dash_charges += 1
+	if dash_charges == dash_max_charges:
+		$DashCD.stop()
