@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=1]
-[ext_resource path="res://areas/ground.tres" type="TileSet" id=3]
-[ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=4]
-[ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=5]
+[ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=1]
+[ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=2]
+[ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=3]
+[ext_resource path="res://areas/ground.tres" type="TileSet" id=4]
+[ext_resource path="res://GUIs/game_menu/game_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/test_map.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 6, 96, 0, 88, 0, 72, 48, 72, 48, 88, 42, 96 )
@@ -43,7 +45,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 
 [sub_resource type="TileSet" id=13]
 0/name = "CP_V1.0.4.png 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, -24 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 32, 32, 48, 96 )
@@ -64,7 +66,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 0/z_index = 0
 1/name = "CP_V1.0.4.png 1"
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, -24 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 112, 32, 48, 96 )
@@ -85,7 +87,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 1/z_index = 0
 2/name = "CP_V1.0.4.png 2"
-2/texture = ExtResource( 5 )
+2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, -24 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 192, 32, 48, 96 )
@@ -106,7 +108,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 2/z_index = 0
 3/name = "CP_V1.0.4.png 3"
-3/texture = ExtResource( 5 )
+3/texture = ExtResource( 1 )
 3/tex_offset = Vector2( 0, -24 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 288, 272, 48, 96 )
@@ -127,7 +129,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 3/z_index = 0
 4/name = "CP_V1.0.4.png 4"
-4/texture = ExtResource( 5 )
+4/texture = ExtResource( 1 )
 4/tex_offset = Vector2( 0, -16 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 272, 32, 81, 96 )
@@ -148,7 +150,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 4/z_index = 0
 5/name = "CP_V1.0.4.png 5"
-5/texture = ExtResource( 5 )
+5/texture = ExtResource( 1 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 16, 176, 64, 48 )
@@ -169,7 +171,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 5/z_index = 0
 6/name = "CP_V1.0.4.png 6"
-6/texture = ExtResource( 5 )
+6/texture = ExtResource( 1 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 112, 176, 48, 47 )
@@ -190,7 +192,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 6/z_index = 0
 7/name = "CP_V1.0.4.png 7"
-7/texture = ExtResource( 5 )
+7/texture = ExtResource( 1 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 192, 170, 64, 54 )
@@ -211,7 +213,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 7/z_index = 0
 8/name = "CP_V1.0.4.png 8"
-8/texture = ExtResource( 5 )
+8/texture = ExtResource( 1 )
 8/tex_offset = Vector2( 0, -8 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 288, 176, 48, 48 )
@@ -232,7 +234,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 8/z_index = 0
 9/name = "CP_V1.0.4.png 9"
-9/texture = ExtResource( 5 )
+9/texture = ExtResource( 1 )
 9/tex_offset = Vector2( 0, -8 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 16, 278, 64, 42 )
@@ -253,7 +255,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 9/z_index = 0
 10/name = "CP_V1.0.4.png 10"
-10/texture = ExtResource( 5 )
+10/texture = ExtResource( 1 )
 10/tex_offset = Vector2( 0, -8 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 112, 278, 48, 42 )
@@ -274,7 +276,7 @@ points = PoolVector2Array( 64, 42, 0, 42, 0, 26, 64, 26 )
 } ]
 10/z_index = 0
 11/name = "CP_V1.0.4.png 11"
-11/texture = ExtResource( 5 )
+11/texture = ExtResource( 1 )
 11/tex_offset = Vector2( 0, -8 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 208, 272, 32, 48 )
@@ -301,10 +303,11 @@ extents = Vector2( 320, 16 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 16, 180 )
 
-[node name="PrototypeRoom" type="Node"]
+[node name="PrototypeRoom" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="Ground" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
@@ -314,7 +317,7 @@ tile_data = PoolIntArray( 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65538, 4,
 [node name="YSort" type="YSort" parent="."]
 
 [node name="VerticalObstacles" type="TileMap" parent="YSort"]
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_tile_origin = 1
@@ -327,7 +330,7 @@ format = 1
 tile_data = PoolIntArray( 196611, 3, 0, 393255, 8, 0, 524292, 2, 0, 524322, 4, 0, 655360, 6, 0, 655399, 12, 0, 720921, 12, 0, 720922, 13, 0, 786432, 6, 0, 917531, 9, 0, 917533, 10, 0, 917535, 11, 0, 983079, 5, 0 )
 
 [node name="BoxyObstacles" type="TileMap" parent="YSort"]
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_tile_origin = 1
 cell_y_sort = true
@@ -348,6 +351,8 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 14, 0, 0, 28, 1, 0, 65553, 2, 0, 65557, 3, 0, 65561, 2, 0 )
 
+[node name="Players" type="YSort" parent="YSort"]
+
 [node name="MapLimits" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 0
@@ -367,3 +372,21 @@ shape = SubResource( 15 )
 [node name="Right" type="CollisionShape2D" parent="MapLimits"]
 position = Vector2( 656, 180 )
 shape = SubResource( 15 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GameMenu" parent="GUI" instance=ExtResource( 5 )]
+
+[node name="Respawns" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Respawns"]
+position = Vector2( 32, 96 )
+
+[node name="Position2D2" type="Position2D" parent="Respawns"]
+position = Vector2( 592, 96 )
+
+[node name="Position2D3" type="Position2D" parent="Respawns"]
+position = Vector2( 112, 304 )
+
+[node name="Position2D4" type="Position2D" parent="Respawns"]
+position = Vector2( 528, 304 )
