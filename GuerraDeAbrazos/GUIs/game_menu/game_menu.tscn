@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GUIs/game_menu/game_menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/montserrat_eb_big.tres" type="DynamicFont" id=3]
+
+[node name="GameMenu" type="Control"]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -92.5
+margin_right = 80.0
+margin_bottom = 92.5
+rect_min_size = Vector2( 160, 185 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.231373, 0.223529, 0.262745, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "PAUSED"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 31.0
+margin_right = 160.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+margin_left = 40.0
+margin_top = 45.0
+margin_right = 120.0
+margin_bottom = 67.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
+text = "CONTINUE"
+flat = true
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_left = 42.0
+margin_top = 71.0
+margin_right = 117.0
+margin_bottom = 93.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
+text = "SETTINGS"
+flat = true
+
+[node name="Controls" type="Button" parent="VBoxContainer"]
+margin_left = 38.0
+margin_top = 97.0
+margin_right = 121.0
+margin_bottom = 119.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
+text = "CONTROLS"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_left = 58.0
+margin_top = 123.0
+margin_right = 101.0
+margin_bottom = 145.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
+text = "QUIT"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
