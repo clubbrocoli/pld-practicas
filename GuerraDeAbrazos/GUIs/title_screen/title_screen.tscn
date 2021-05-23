@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://assets/menus/only_bears.png" type="Texture" id=1]
+[ext_resource path="res://GUIs/options_menu/options_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUIs/title_screen/menu_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=4]
@@ -465,7 +465,6 @@ margin_left = 41.0
 margin_right = 216.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 175, 175 )
-texture = ExtResource( 1 )
 expand = true
 
 [node name="VersionLabel" type="Label" parent="Menu"]
@@ -477,6 +476,9 @@ custom_fonts/font = ExtResource( 4 )
 text = "  Version 0.8.1"
 align = 1
 valign = 1
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/Options" to="." method="_on_Options_pressed"]

@@ -1,32 +1,31 @@
 extends Control
 
+signal options_pressed
+
 
 func _input(event):
 	if event.is_action_pressed("gui_menu"):
-		if visible:
-			close_menu()
-		else:
-			open_menu()
-	elif event.is_action_pressed("gui_cancel_joy"):
-		if visible:
-			close_menu()
-
+		pass
 
 func _on_Continue_pressed():
-	close_menu()
+	close()
+
+
+func _on_Settings_pressed():
+	emit_signal("options_pressed")
 
 
 func _on_Quit_pressed():
-	close_menu()
+	close()
 	get_tree().change_scene("res://GUIs/title_screen/title_screen.tscn")
 
 
-func open_menu():
+func open():
 	get_tree().paused = true
 	$VBoxContainer/Continue.grab_focus()
 	show()
 
 
-func close_menu():
+func close():
 	get_tree().paused = false
 	hide()

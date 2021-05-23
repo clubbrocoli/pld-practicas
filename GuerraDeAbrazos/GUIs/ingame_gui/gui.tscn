@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GUIs/options_menu/options_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUIs/ingame_gui/gui.gd" type="Script" id=2]
+[ext_resource path="res://GUIs/game_menu/game_menu.tscn" type="PackedScene" id=5]
+
+[node name="GUI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="GameMenu" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[connection signal="options_pressed" from="GameMenu" to="." method="_on_GameMenu_options_pressed"]
