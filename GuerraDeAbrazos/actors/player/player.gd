@@ -88,7 +88,7 @@ func throw_bomb():
 		bomb_charges -= 1
 		var b = Bomb.instance()
 		b.start(global_position, 
-				last_input.angle(), bomb_speed + (velocity + impulse_vel).length() * 0.5, bomb_push, get_instance_id())
+				last_input.angle(), bomb_speed + (velocity + impulse_vel).length() * 0.5, bomb_push, $HurtBox.get_instance_id())
 		get_parent().add_child(b)
 
 

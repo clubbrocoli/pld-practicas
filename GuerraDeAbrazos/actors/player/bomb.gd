@@ -22,8 +22,8 @@ func _physics_process(delta):
 			explode()
 
 
-func _on_CharacterDetection_body_entered(body):
-	if not detonated and body.get_instance_id() != parent_id:
+func _on_CharacterDetectionArea_area_entered(area):
+	if not detonated and area.get_instance_id() != parent_id:
 		explode()
 
 

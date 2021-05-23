@@ -4,7 +4,7 @@
 [ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=2]
 [ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=3]
 [ext_resource path="res://areas/ground.tres" type="TileSet" id=4]
-[ext_resource path="res://GUIs/game_menu/game_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUIs/ingame_gui/gui.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/NPCManager.gd" type="Script" id=6]
 [ext_resource path="res://levels/test_map.gd" type="Script" id=9]
 
@@ -312,6 +312,8 @@ outlines = [ PoolVector2Array( -104.042, -67.5938, -104.042, 202.264, -70.7069, 
 [node name="PrototypeRoom" type="Node2D"]
 script = ExtResource( 9 )
 
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
 [node name="Ground" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
@@ -380,10 +382,6 @@ shape = SubResource( 15 )
 [node name="Right" type="CollisionShape2D" parent="MapLimits"]
 position = Vector2( 656, 180 )
 shape = SubResource( 15 )
-
-[node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="GameMenu" parent="GUI" instance=ExtResource( 5 )]
 
 [node name="NPCManager" type="Node2D" parent="."]
 script = ExtResource( 6 )
