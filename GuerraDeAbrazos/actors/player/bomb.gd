@@ -22,7 +22,7 @@ func _physics_process(delta):
 			explode()
 
 
-func _on_PlayerDetection_body_entered(body):
+func _on_CharacterDetection_body_entered(body):
 	if not detonated and body.get_instance_id() != parent_id:
 		explode()
 
