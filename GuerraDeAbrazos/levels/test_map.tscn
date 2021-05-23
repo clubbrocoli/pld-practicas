@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=1]
 [ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=2]
 [ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=3]
 [ext_resource path="res://areas/ground.tres" type="TileSet" id=4]
 [ext_resource path="res://GUIs/game_menu/game_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/NPCManager.gd" type="Script" id=6]
 [ext_resource path="res://levels/test_map.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -303,6 +304,11 @@ extents = Vector2( 320, 16 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 16, 180 )
 
+[sub_resource type="NavigationPolygon" id=16]
+vertices = PoolVector2Array( 325.902, 62.8636, 388.268, 62.8636, 558.82, 75.927, 491.233, 75.2721, 162.977, 70.7907, 240.87, 64.2501, 605.526, -66.0064, 578.605, 112.413, 571.004, 76.9865, 570.474, 39.9053, 604.732, 361.004, 577.415, 146.9, 569.686, 220.036, 566.713, 201.603, -43.2548, 176.887, -44.5148, 100.031, -17.5293, 111.782, -1.65498, 363.386, 562.55, 95.7641, 531.269, 171.217, 550.064, 144.522, 560.766, 198.63, 542.928, 254.523, 541.739, 234.901, 566.713, 220.036, 413.305, 109.44, 428.531, 87.9715, 429.324, 126.069, 413.45, 127.657, 411.521, 82.6828, 558.388, 217.658, 527.469, 195.063, 489.646, 361.004, 523.901, 253.334, -19.9104, 72.891, -23.0852, 28.4437, -104.042, -67.5938, -0.861275, -74.7371, -20.7041, -10.4476, -75.3829, 108.851, 535.793, 90.4126, 491.233, 19.7132, 490.439, -66.0064, 559.35, 45.7323, 122.162, 14.951, 124.543, -22.3529, 141.211, -16.797, 176.653, 41.0605, 381.702, 158.611, 377.734, 175.279, 368.71, 158.197, 368.71, 124.9, 363.447, 174.485, 320.547, 157.603, 396.783, 142.737, 398.37, 159.405, 320.547, 115.981, 321.736, 87.4396, 351.73, 77.9827, 358.582, 113.538, 324.114, 127.278, -104.042, 367.354, -100.868, 307.827, -59.5951, 301.477, -61.5238, 209.014, -76.0128, 176.257, -70.7069, 206.233, -104.042, 202.264, 17.3938, 30.8251, 116.606, 76.066, 116.606, 30.0313, 174.274, 62.4662, 138.294, 70.9621, 310.269, 9.39513, 327.162, 38.2951, 241.464, 39.8713, 295.983, 10.9825, 412.657, 141.943, 458.691, 31.6188, 429.324, 18.9195, 384.488, 37.6652, 380.909, -21.5594, 395.989, -19.1783, 364.241, 6.22034, 336.461, 13.3636, 273.759, -5.68517, 256.298, 8.60145, 220.581, 12.5699, 189.627, 11.7762, 505.468, 165.333, 538.172, 117.764, 551.847, 118.359, 351.542, 318.145, 365.035, 318.145, 365.828, 358.623, 185.658, 357.83, 185.658, 319.732, 204.707, 318.145, 332.493, 248.299, 211.85, 257.823, 519.739, 236.685, 503.685, 198.036, 207.469, 146.018, 203.913, 189.565, 206.209, 128.379, 229.572, 115.981, 349.161, 188.771, 191.72, 120.82, 196.13, 105.701, 234.924, 84.4666, 138.294, 96.4333, 136.449, 126.863, 122.956, 124.482, 121.369, 90.3526, 361.86, 187.184, 193.61, 146.648, 188.039, 188.771, 184.865, 176.072, 171.372, 170.516, 170.578, 156.23, 169.517, 135.602, 157.085, 153.849, 152.323, 140.356, 158.521, 96.4333, 171.301, 107.062, 139.624, 139.562, 160.26, -17.5907, 184.071, -11.2411, 459.485, 75.2723, 151.03, 73.2095 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 7, 6, 10, 11 ), PoolIntArray( 11, 10, 12, 13 ), PoolIntArray( 14, 15, 16, 17 ), PoolIntArray( 8, 7, 18, 2 ), PoolIntArray( 19, 20, 11, 13, 21 ), PoolIntArray( 12, 10, 22, 23, 24 ), PoolIntArray( 25, 26, 27, 28 ), PoolIntArray( 26, 25, 29 ), PoolIntArray( 30, 24, 23 ), PoolIntArray( 31, 19, 21, 30, 23 ), PoolIntArray( 22, 10, 32, 33 ), PoolIntArray( 34, 16, 15, 35 ), PoolIntArray( 36, 37, 38, 39 ), PoolIntArray( 2, 18, 40, 3 ), PoolIntArray( 41, 42, 6, 9, 43 ), PoolIntArray( 44, 45, 46, 47 ), PoolIntArray( 48, 49, 50, 51 ), PoolIntArray( 50, 49, 52, 53 ), PoolIntArray( 54, 55, 48, 51 ), PoolIntArray( 56, 57, 58, 59, 60 ), PoolIntArray( 17, 61, 62, 63 ), PoolIntArray( 14, 17, 63, 64 ), PoolIntArray( 65, 14, 64, 66 ), PoolIntArray( 65, 66, 67 ), PoolIntArray( 65, 67, 36, 39 ), PoolIntArray( 39, 38, 35, 15 ), PoolIntArray( 34, 35, 68, 69 ), PoolIntArray( 69, 68, 70, 47, 71, 72 ), PoolIntArray( 73, 74, 0, 5, 75, 76 ), PoolIntArray( 71, 5, 4 ), PoolIntArray( 59, 25, 28, 77, 54, 51 ), PoolIntArray( 41, 43, 2, 1, 78 ), PoolIntArray( 79, 78, 1, 80 ), PoolIntArray( 81, 82, 79, 80, 83 ), PoolIntArray( 83, 80, 74, 84 ), PoolIntArray( 73, 84, 74 ), PoolIntArray( 85, 76, 75, 86 ), PoolIntArray( 87, 86, 75, 47 ), PoolIntArray( 88, 87, 47 ), PoolIntArray( 89, 90, 91, 20, 19 ), PoolIntArray( 92, 93, 94, 95, 96 ), PoolIntArray( 92, 96, 97 ), PoolIntArray( 98, 92, 97, 99 ), PoolIntArray( 31, 23, 100, 101 ), PoolIntArray( 102, 60, 53, 103 ), PoolIntArray( 56, 60, 102, 104, 105 ), PoolIntArray( 106, 98, 99, 103, 53 ), PoolIntArray( 59, 51, 60 ), PoolIntArray( 105, 104, 107, 108, 109 ), PoolIntArray( 110, 111, 112, 113, 72 ), PoolIntArray( 52, 114, 106, 53 ), PoolIntArray( 115, 102, 103, 116, 117 ), PoolIntArray( 115, 117, 118, 119, 120 ), PoolIntArray( 120, 119, 121, 122 ), PoolIntArray( 123, 124, 120, 122, 125, 111, 110 ), PoolIntArray( 126, 127, 88, 47, 46 ), PoolIntArray( 70, 44, 47 ), PoolIntArray( 128, 26, 29 ), PoolIntArray( 40, 90, 89, 3 ), PoolIntArray( 100, 33, 32, 101 ), PoolIntArray( 101, 32, 3, 89 ), PoolIntArray( 4, 3, 128 ), PoolIntArray( 4, 109, 108, 124, 123 ), PoolIntArray( 71, 4, 129, 72 ), PoolIntArray( 58, 57, 109, 4 ), PoolIntArray( 128, 29, 58 ), PoolIntArray( 4, 128, 58 ), PoolIntArray( 72, 113, 69 ), PoolIntArray( 72, 129, 129 ) ]
+outlines = [ PoolVector2Array( -104.042, -67.5938, -104.042, 202.264, -70.7069, 206.233, -61.5238, 209.014, -59.5951, 301.477, -100.868, 307.827, -104.042, 367.354, -1.65498, 363.386, -17.5293, 111.782, -19.9104, 72.891, 116.606, 76.066, 121.369, 90.3526, 122.956, 124.482, 136.449, 126.863, 139.624, 139.562, 152.323, 140.356, 157.085, 153.849, 170.578, 156.23, 171.372, 170.516, 184.865, 176.072, 188.039, 188.771, 203.913, 189.565, 211.85, 257.823, 204.707, 318.145, 185.658, 319.732, 185.658, 357.83, 365.828, 358.623, 365.035, 318.145, 351.542, 318.145, 332.493, 248.299, 349.161, 188.771, 361.86, 187.184, 363.447, 174.485, 377.734, 175.279, 381.702, 158.611, 398.37, 159.405, 396.783, 142.737, 412.657, 141.943, 413.45, 127.657, 429.324, 126.069, 428.531, 87.9715, 459.485, 75.2723, 491.233, 75.2721, 489.646, 361.004, 604.732, 361.004, 605.526, -66.0064, 490.439, -66.0064, 491.233, 19.7132, 458.691, 31.6188, 429.324, 18.9195, 395.989, -19.1783, 380.909, -21.5594, 364.241, 6.22034, 336.461, 13.3636, 310.269, 9.39513, 295.983, 10.9825, 273.759, -5.68517, 256.298, 8.60145, 220.581, 12.5699, 189.627, 11.7762, 184.071, -11.2411, 160.26, -17.5907, 141.211, -16.797, 124.543, -22.3529, 122.162, 14.951, 116.606, 30.0313, 17.3938, 30.8251, -23.0852, 28.4437, -20.7041, -10.4476, -0.861275, -74.7371 ), PoolVector2Array( 138.294, 70.9621, 138.294, 96.4333, 158.521, 96.4333, 162.977, 70.7907, 151.03, 73.2095, 151.03, 73.2095 ), PoolVector2Array( 176.653, 41.0605, 174.274, 62.4662, 240.87, 64.2501, 241.464, 39.8713 ), PoolVector2Array( 234.924, 84.4666, 229.572, 115.981, 320.547, 115.981, 321.736, 87.4396 ), PoolVector2Array( 327.162, 38.2951, 325.902, 62.8636, 388.268, 62.8636, 384.488, 37.6652 ), PoolVector2Array( 358.582, 113.538, 413.305, 109.44, 411.521, 82.6828, 351.73, 77.9827 ), PoolVector2Array( 505.468, 165.333, 503.685, 198.036, 527.469, 195.063, 531.269, 171.217 ), PoolVector2Array( 559.35, 45.7323, 558.82, 75.927, 571.004, 76.9865, 570.474, 39.9053 ), PoolVector2Array( 535.793, 90.4126, 538.172, 117.764, 551.847, 118.359, 550.064, 144.522, 577.415, 146.9, 578.605, 112.413, 562.55, 95.7641 ), PoolVector2Array( 560.766, 198.63, 558.388, 217.658, 566.713, 220.036, 569.686, 220.036, 566.713, 201.603 ), PoolVector2Array( 169.517, 135.602, 193.61, 146.648, 207.469, 146.018, 206.209, 128.379, 191.72, 120.82, 196.13, 105.701, 171.301, 107.062 ), PoolVector2Array( 320.547, 157.603, 368.71, 158.197, 368.71, 124.9, 324.114, 127.278 ), PoolVector2Array( 519.739, 236.685, 523.901, 253.334, 542.928, 254.523, 541.739, 234.901 ), PoolVector2Array( -75.3829, 108.851, -76.0128, 176.257, -43.2548, 176.887, -44.5148, 100.031 ) ]
+
 [node name="PrototypeRoom" type="Node2D"]
 script = ExtResource( 9 )
 
@@ -351,6 +357,8 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 14, 0, 0, 28, 1, 0, 65553, 2, 0, 65557, 3, 0, 65561, 2, 0 )
 
+[node name="NPCList" type="YSort" parent="YSort"]
+
 [node name="Players" type="YSort" parent="YSort"]
 
 [node name="MapLimits" type="StaticBody2D" parent="."]
@@ -376,6 +384,89 @@ shape = SubResource( 15 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="GameMenu" parent="GUI" instance=ExtResource( 5 )]
+
+[node name="NPCManager" type="Node2D" parent="."]
+script = ExtResource( 6 )
+npc_max_number = 40
+
+[node name="Navigation2D" type="Navigation2D" parent="NPCManager"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="NPCManager/Navigation2D"]
+position = Vector2( 68.3708, 33.1167 )
+navpoly = SubResource( 16 )
+
+[node name="NPCSpawns" type="Node2D" parent="NPCManager"]
+
+[node name="TopPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+
+[node name="top_Position7" type="Position2D" parent="NPCManager/NPCSpawns/TopPositions"]
+position = Vector2( 344.389, 47.3868 )
+
+[node name="top_Position5" type="Position2D" parent="NPCManager/NPCSpawns/TopPositions"]
+position = Vector2( 460.52, 32.0362 )
+
+[node name="top_Position6" type="Position2D" parent="NPCManager/NPCSpawns/TopPositions"]
+position = Vector2( 227.59, 34.0384 )
+
+[node name="LeftPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+
+[node name="left_Position10" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( -21.0839, 206.186 )
+
+[node name="left_Position1" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( -16.8794, 130.505 )
+
+[node name="left_Position15" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( -19.4021, 39.6883 )
+
+[node name="left_Position3" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( -20.1961, 77.1532 )
+
+[node name="left_Position4" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( 21.4515, -15.83 )
+
+[node name="bottomleft_Position11" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( 28.529, 376.888 )
+
+[node name="bottomleft_Position" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
+position = Vector2( -14.0158, 379.095 )
+
+[node name="BottomPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+
+[node name="bottom_Position9" type="Position2D" parent="NPCManager/NPCSpawns/BottomPositions"]
+position = Vector2( 357.498, 376.847 )
+
+[node name="bottom_Position13" type="Position2D" parent="NPCManager/NPCSpawns/BottomPositions"]
+position = Vector2( 407.501, 377.641 )
+
+[node name="bottom_Position14" type="Position2D" parent="NPCManager/NPCSpawns/BottomPositions"]
+position = Vector2( 285.271, 378.435 )
+
+[node name="RightPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+
+[node name="right_Position" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 660.404, 85.5235 )
+
+[node name="right_Position15" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 660.404, 23.2972 )
+
+[node name="right_Position16" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 662.926, 131.773 )
+
+[node name="right_Position17" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 659.563, 235.203 )
+
+[node name="right_Position18" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 661.244, 330.224 )
+
+[node name="right_Position1" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 604.277, 380.411 )
+
+[node name="right_Position11" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 598.932, -13.3662 )
+
+[node name="right_Position8" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
+position = Vector2( 662.185, 287.758 )
 
 [node name="Respawns" type="Node2D" parent="."]
 
