@@ -452,21 +452,6 @@ size_flags_horizontal = 4
 text = "QUIT"
 align = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
-visible = false
-margin_left = 262.0
-margin_right = 520.0
-margin_bottom = 175.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Characters" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
-margin_left = 41.0
-margin_right = 216.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 175, 175 )
-expand = true
-
 [node name="VersionLabel" type="Label" parent="Menu"]
 margin_top = 264.0
 margin_right = 520.0

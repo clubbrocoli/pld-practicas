@@ -29,11 +29,15 @@ func init_players(d_mapping, textures):
 		player.get_node("Sprite").set_texture(textures[player_id])
 		
 		$YSort/Players.add_child(player)
+		player.connect("hug_finished", self, "_on_hug_finished")
 
 
 func sort_device(a, b):
 	return a[1] < b[1]
 
+
+func _on_hug_finished(body_a, body_b):
+	pass
 
 # For changing controllers mid-game (Commented because signal is not consistent for now in disconects)
 #func _ready():

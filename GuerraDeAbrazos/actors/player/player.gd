@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+signal hug_finished(body_a, body_b)
+
 const Bomb = preload("res://actors/player/bomb.tscn")
 
 export var max_speed = 200
@@ -11,6 +13,7 @@ export var dash_max_charges = 2
 export var bomb_speed = 200
 export var bomb_push = 750
 export var bomb_charges = 2
+export var hug_push = 500
 
 var id = 0
 var device_id = 0
@@ -20,6 +23,8 @@ var velocity = Vector2.ZERO
 var impulse_vel = Vector2.ZERO
 var dash_charges = dash_max_charges
 var dashing = false
+var hugging = false
+var hugging_body
 
 
 # Input
@@ -39,9 +44,9 @@ func get_input():
 
 # Movement
 func _physics_process(delta):
-	get_input()
-	
 	if not dashing:
+		get_input()
+		
 		if input == Vector2.ZERO:
 			apply_friction(delta)
 			change_animation("idle")
@@ -56,6 +61,13 @@ func _physics_process(delta):
 		var motion = velocity * (1 - impulse_vel.length()/bomb_push)
 		move_and_slide(motion + impulse_vel)
 		impulse_vel = impulse_vel.move_toward(Vector2.ZERO, friction * delta)
+	
+	# Check for hugs
+	for i in get_slide_count():
+		var collider = get_slide_collision(i).collider
+		if not hugging:
+			if collider.has_method("hug"):
+				hug(collider)
 
 
 func apply_friction(delta):
@@ -97,15 +109,16 @@ func pick_bomb():
 
 
 func dash():
-	if dash_charges == dash_max_charges:
-		$DashCD.start()
-	
-	if dash_charges > 0:
-		dash_charges -= 1
-		dashing = true
-		velocity = Vector2(dash_speed, 0).rotated(last_input.angle())
-		set_collision_mask_bit(2, false)
-		$DashDuration.start()
+	if not dashing:
+		if dash_charges == dash_max_charges:
+			$DashCD.start()
+		
+		if dash_charges > 0:
+			dash_charges -= 1
+			dashing = true
+			velocity = Vector2(dash_speed, 0).rotated(last_input.angle())
+			set_collision_mask_bit(2, false)
+			$DashDuration.start()
 
 
 func _on_DashDuration_timeout():
@@ -123,3 +136,30 @@ func _on_Tween_tween_completed(object, key):
 	if object == self and key == ":velocity":
 		set_collision_mask_bit(2, true)
 		dashing = false
+
+
+func hug(body):
+	if not hugging and (not body.hugging or body.hugging_body == self):
+		hugging = true
+		hugging_body = body
+		set_physics_process(false)
+		set_process_input(false)
+		body.hug(self)
+		
+		
+		$AnimationTree.set("parameters/Idle/blend_position", position.direction_to(body.position))
+		change_animation("idle")
+		$HugDuration.start()
+
+
+func _on_HugDuration_timeout():
+	impulse_vel = hugging_body.position.direction_to(position) * hug_push
+	set_physics_process(true)
+	set_process_input(true)
+	$HugUnvulnerability.start()
+	emit_signal("hug_finished", self, hugging_body)
+
+
+func _on_HugUnvulnerability_timeout():
+	hugging = false
+	hugging_body = null
