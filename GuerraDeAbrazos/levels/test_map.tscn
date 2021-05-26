@@ -466,7 +466,7 @@ position = Vector2( 598.932, -13.3662 )
 [node name="right_Position8" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
 position = Vector2( 662.185, 287.758 )
 
-[node name="Respawns" type="Node2D" parent="."]
+[node name="Respawns" type="Node" parent="."]
 
 [node name="Position2D" type="Position2D" parent="Respawns"]
 position = Vector2( 32, 96 )

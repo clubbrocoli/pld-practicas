@@ -228,7 +228,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 1 )
 hframes = 24
 vframes = 7
-frame = 36
+frame = 38
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleDown = SubResource( 3 )
@@ -248,6 +248,8 @@ parameters/playback = SubResource( 24 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="DashDuration" type="Timer" parent="."]
 wait_time = 0.07
 one_shot = true
@@ -255,8 +257,16 @@ one_shot = true
 [node name="DashCD" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="Tween" type="Tween" parent="."]
+[node name="HugDuration" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
+[node name="HugUnvulnerability" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_DashDuration_timeout"]
 [connection signal="timeout" from="DashCD" to="." method="_on_DashCD_timeout"]
-[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="timeout" from="HugDuration" to="." method="_on_HugDuration_timeout"]
+[connection signal="timeout" from="HugUnvulnerability" to="." method="_on_HugUnvulnerability_timeout"]

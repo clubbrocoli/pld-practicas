@@ -3,11 +3,14 @@ extends KinematicBody2D
 
 export var speed = 40
 export var friction = 1500
+export var hug_push = 500
 
 var path: = PoolVector2Array()
 var impulse_vel = Vector2.ZERO
 var last_input = Vector2.ZERO
 var direction = Vector2.ZERO
+var hugging = false
+var hugging_body = null
 var animation
 var pushed = false
 
@@ -34,9 +37,9 @@ func _physics_process(delta):
 			for index in get_slide_count():
 				var collision = get_slide_collision(index)
 				move_and_slide(direction.rotated(PI*randf())*speed*rand_range(1,3))
-				direction = position.direction_to(path[0])	
+				direction = position.direction_to(path[0])
 						
-			last_input = direction	
+			last_input = direction
 			change_animation(animation)
 		else:
 			# The player get to the next point
@@ -48,6 +51,31 @@ func _physics_process(delta):
 			else:
 				direction = position.direction_to(path[0])
 
+
+func hug(body):
+	if not hugging and (not body.hugging or body.hugging_body == self):
+		hugging = true
+		hugging_body = body
+		set_physics_process(false)
+		set_process_input(false)
+		body.hug(self)
+		
+		
+		$AnimationTree.set("parameters/Idle/blend_position", position.direction_to(body.position))
+		change_animation("idle")
+		$HugDuration.start()
+
+
+func _on_HugDuration_timeout():
+	impulse_vel = hugging_body.position.direction_to(position) * hug_push
+	set_physics_process(true)
+	set_process_input(true)
+	$HugUnvulnerability.start()
+
+
+func _on_HugUnvulnerability_timeout():
+	hugging = false
+	hugging_body = null
 
 func change_animation(animation):
 	match animation:
