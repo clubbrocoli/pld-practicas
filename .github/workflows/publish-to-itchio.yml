@@ -1,0 +1,25 @@
+on:
+    release:
+        types: [published]
+
+
+jobs:
+  release_html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download HTML5
+        id: download-html
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          version: "latest"
+          file: guerra-de-abrazos-web.zip
+          token: "${{ secrets.GH_CREDENTIALS }}"
+      - name: deploy to itch.io (HTML5)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_CREDENTIALS }}
+          CHANNEL: html
+          ITCH_GAME: guerra-de-abrazos-web
+          ITCH_USER: heliosito
+          PACKAGE: guerra-de-abrazos-web.zip
+          VERSION: ${{ steps.download-html.outputs.version }}
