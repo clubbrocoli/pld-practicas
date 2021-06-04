@@ -1,10 +1,10 @@
 extends Control
 
 func _ready():
-	$Menu/CenterRow/Buttons/Play.grab_focus()
+	$Menu/Buttons/Play.grab_focus()
 	
 func _on_Play_pressed():
-	get_tree().change_scene("res://GUIs/select_screen/select_screen.tscn")
+	get_tree().change_scene("res://guis/select_screen/select_screen.tscn")
 
 
 func _on_Options_pressed():
@@ -18,7 +18,7 @@ func _input(event):
 	if event.is_action_pressed("gui_menu") or event.is_action_pressed("gui_cancel_joy"):
 		if $OptionsMenu.visible:
 			$OptionsMenu.close()
-			$Menu/CenterRow/Buttons/Play.grab_focus()
+			$Menu/Buttons/Play.grab_focus()
 	
 	if event is InputEventKey:
 		$PlayableBackground/YSort/Players/Player.device_id = 4

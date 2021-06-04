@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/montserrat_eb_big.tres" type="DynamicFont" id=2]
-[ext_resource path="res://GUIs/options_menu/options_menu.gd" type="Script" id=3]
+[ext_resource path="res://guis/options_menu/options_menu.gd" type="Script" id=3]
 
 [node name="OptionsMenu" type="Control"]
 anchor_left = 0.5

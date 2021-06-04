@@ -17,7 +17,7 @@ func _on_Settings_pressed():
 
 func _on_Quit_pressed():
 	close()
-	get_tree().change_scene("res://GUIs/title_screen/title_screen.tscn")
+	get_tree().change_scene("res://guis/title_screen/title_screen.tscn")
 
 
 func open():

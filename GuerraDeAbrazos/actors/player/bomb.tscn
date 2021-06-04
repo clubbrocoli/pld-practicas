@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://actors/player/bomb.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.0
@@ -47,6 +48,10 @@ disabled = true
 [node name="ExplosionDuration" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
 
 [connection signal="area_entered" from="CharacterDetectionArea" to="." method="_on_CharacterDetectionArea_area_entered"]
 [connection signal="area_shape_entered" from="ExplosionArea" to="." method="_on_ExplosionArea_area_shape_entered"]

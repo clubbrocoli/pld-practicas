@@ -1,11 +1,11 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://GUIs/options_menu/options_menu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GUIs/title_screen/menu_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://guis/options_menu/options_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://guis/title_screen/menu_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=4]
 [ext_resource path="res://areas/ground.tres" type="TileSet" id=5]
-[ext_resource path="res://GUIs/title_screen/title_screen.gd" type="Script" id=6]
+[ext_resource path="res://guis/title_screen/title_screen.gd" type="Script" id=6]
 [ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=7]
 [ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=9]
@@ -411,21 +411,16 @@ text = "Guerra de Abrazos"
 align = 1
 valign = 1
 
-[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+[node name="Buttons" type="VBoxContainer" parent="Menu"]
 margin_top = 72.0
 margin_right = 520.0
 margin_bottom = 244.0
-size_flags_vertical = 3
-
-[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 520.0
-margin_bottom = 172.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Play" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
+[node name="Play" parent="Menu/Buttons" instance=ExtResource( 2 )]
 margin_left = 224.0
 margin_top = 16.0
 margin_right = 296.0
@@ -434,7 +429,7 @@ size_flags_horizontal = 4
 text = "PLAY"
 align = 1
 
-[node name="Options" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
+[node name="Options" parent="Menu/Buttons" instance=ExtResource( 2 )]
 margin_left = 203.0
 margin_top = 69.0
 margin_right = 317.0
@@ -443,7 +438,7 @@ size_flags_horizontal = 4
 text = "OPTIONS"
 align = 1
 
-[node name="Quit" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
+[node name="Quit" parent="Menu/Buttons" instance=ExtResource( 2 )]
 margin_left = 226.0
 margin_top = 122.0
 margin_right = 293.0
@@ -465,6 +460,6 @@ valign = 1
 [node name="OptionsMenu" parent="." instance=ExtResource( 1 )]
 visible = false
 
-[connection signal="pressed" from="Menu/CenterRow/Buttons/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="Menu/CenterRow/Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Quit" to="." method="_on_Quit_pressed"]
