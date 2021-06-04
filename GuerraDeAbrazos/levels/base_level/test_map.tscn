@@ -1,12 +1,59 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=1]
 [ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=2]
 [ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=3]
 [ext_resource path="res://areas/ground.tres" type="TileSet" id=4]
-[ext_resource path="res://GUIs/ingame_gui/gui.tscn" type="PackedScene" id=5]
-[ext_resource path="res://levels/NPCManager.gd" type="Script" id=6]
-[ext_resource path="res://levels/test_map.gd" type="Script" id=9]
+[ext_resource path="res://guis/ingame_gui/gui.tscn" type="PackedScene" id=5]
+[ext_resource path="res://NPCManager.gd" type="Script" id=6]
+[ext_resource path="res://assets/fonts/montserrat_eb_big.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://levels/base_level/base_level.gd" type="Script" id=9]
+[ext_resource path="res://levels/base_level/intro.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=17]
+size = 42
+outline_size = 1
+outline_color = Color( 0.898039, 0.32549, 0.505882, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 40
+outline_size = 1
+outline_color = Color( 0.898039, 0.32549, 0.505882, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=19]
+resource_name = "slide_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 70 ), Vector2( 60, 70 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "slide_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 60, 70 ), Vector2( -580, 70 ) ]
+}
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 6, 96, 0, 88, 0, 72, 48, 72, 48, 88, 42, 96 )
@@ -312,6 +359,69 @@ outlines = [ PoolVector2Array( -104.042, -67.5938, -104.042, 202.264, -70.7069, 
 [node name="PrototypeRoom" type="Node2D"]
 script = ExtResource( 9 )
 
+[node name="Intro" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 10 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 320.0
+margin_top = -110.0
+margin_right = 840.0
+margin_bottom = 110.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelTitle" type="Label" parent="Intro/VBoxContainer"]
+margin_top = 2.0
+margin_right = 520.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Love City"
+align = 1
+valign = 1
+
+[node name="PlayStyle" type="Label" parent="Intro/VBoxContainer"]
+margin_top = 74.0
+margin_right = 520.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 7 )
+text = "Hug people with Suits"
+align = 1
+
+[node name="WinCondition" type="Label" parent="Intro/VBoxContainer"]
+margin_top = 121.0
+margin_right = 520.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 7 )
+text = "Most hugs wins"
+align = 1
+
+[node name="Counter" type="Label" parent="Intro/VBoxContainer"]
+margin_top = 168.0
+margin_right = 520.0
+margin_bottom = 218.0
+custom_fonts/font = SubResource( 18 )
+text = "3"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
+autoplay = "slide_in"
+anims/slide_in = SubResource( 19 )
+anims/slide_out = SubResource( 20 )
+
+[node name="IntroDuration" type="Timer" parent="Intro"]
+pause_mode = 2
+wait_time = 5.0
+one_shot = true
+
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
 [node name="Ground" type="TileMap" parent="."]
@@ -383,19 +493,17 @@ shape = SubResource( 15 )
 position = Vector2( 656, 180 )
 shape = SubResource( 15 )
 
-[node name="NPCManager" type="Node2D" parent="."]
+[node name="NPCManager" type="Navigation2D" parent="."]
 script = ExtResource( 6 )
-npc_max_number = 40
+npc_max_number = 3
 
-[node name="Navigation2D" type="Navigation2D" parent="NPCManager"]
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="NPCManager/Navigation2D"]
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="NPCManager"]
 position = Vector2( 68.3708, 33.1167 )
 navpoly = SubResource( 16 )
 
-[node name="NPCSpawns" type="Node2D" parent="NPCManager"]
+[node name="NPCSpawns" type="Node" parent="NPCManager"]
 
-[node name="TopPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+[node name="TopPositions" type="Node" parent="NPCManager/NPCSpawns"]
 
 [node name="top_Position7" type="Position2D" parent="NPCManager/NPCSpawns/TopPositions"]
 position = Vector2( 344.389, 47.3868 )
@@ -406,7 +514,7 @@ position = Vector2( 460.52, 32.0362 )
 [node name="top_Position6" type="Position2D" parent="NPCManager/NPCSpawns/TopPositions"]
 position = Vector2( 227.59, 34.0384 )
 
-[node name="LeftPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+[node name="LeftPositions" type="Node" parent="NPCManager/NPCSpawns"]
 
 [node name="left_Position10" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
 position = Vector2( -21.0839, 206.186 )
@@ -429,7 +537,7 @@ position = Vector2( 28.529, 376.888 )
 [node name="bottomleft_Position" type="Position2D" parent="NPCManager/NPCSpawns/LeftPositions"]
 position = Vector2( -14.0158, 379.095 )
 
-[node name="BottomPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+[node name="BottomPositions" type="Node" parent="NPCManager/NPCSpawns"]
 
 [node name="bottom_Position9" type="Position2D" parent="NPCManager/NPCSpawns/BottomPositions"]
 position = Vector2( 357.498, 376.847 )
@@ -440,7 +548,7 @@ position = Vector2( 407.501, 377.641 )
 [node name="bottom_Position14" type="Position2D" parent="NPCManager/NPCSpawns/BottomPositions"]
 position = Vector2( 285.271, 378.435 )
 
-[node name="RightPositions" type="Node2D" parent="NPCManager/NPCSpawns"]
+[node name="RightPositions" type="Node" parent="NPCManager/NPCSpawns"]
 
 [node name="right_Position" type="Position2D" parent="NPCManager/NPCSpawns/RightPositions"]
 position = Vector2( 660.404, 85.5235 )
@@ -479,3 +587,11 @@ position = Vector2( 112, 304 )
 
 [node name="Position2D4" type="Position2D" parent="Respawns"]
 position = Vector2( 528, 304 )
+
+[node name="TimeLimit" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="animation_finished" from="Intro/AnimationPlayer" to="Intro" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Intro/IntroDuration" to="Intro" method="_on_IntroDuration_timeout"]
+[connection signal="timeout" from="TimeLimit" to="." method="_on_TimeLimit_timeout"]

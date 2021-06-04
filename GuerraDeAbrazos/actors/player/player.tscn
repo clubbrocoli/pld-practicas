@@ -228,7 +228,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 1 )
 hframes = 24
 vframes = 7
-frame = 38
+frame = 36
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleDown = SubResource( 3 )
@@ -262,7 +262,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="HugUnvulnerability" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.8
 one_shot = true
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

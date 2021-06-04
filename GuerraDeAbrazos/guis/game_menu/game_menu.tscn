@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://GUIs/game_menu/game_menu.gd" type="Script" id=1]
+[ext_resource path="res://guis/game_menu/game_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/montserrat_eb_big.tres" type="DynamicFont" id=3]
 

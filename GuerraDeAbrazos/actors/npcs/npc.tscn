@@ -208,7 +208,6 @@ height = 8.0
 [node name="NPC" type="KinematicBody2D" groups=[
 "npcs",
 ]]
-position = Vector2( 196.576, 111.723 )
 collision_layer = 16
 collision_mask = 2147483665
 script = ExtResource( 1 )
@@ -223,7 +222,7 @@ position = Vector2( 0, -8 )
 texture = SubResource( 2 )
 hframes = 24
 vframes = 7
-frame = 40
+frame = 41
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleDown = SubResource( 3 )
