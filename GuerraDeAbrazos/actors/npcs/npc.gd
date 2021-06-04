@@ -86,6 +86,6 @@ func change_animation(animation):
 			$AnimationTree.set("parameters/Run/blend_position", last_input)
 			$AnimationTree.get("parameters/playback").travel("Run")
 
-
-func apply_impulse(impulse):
-	impulse_vel += impulse
+# Disabling this for now, too many bugs with NPCs moving out of place
+#func apply_impulse(impulse):
+#	impulse_vel += impulse
