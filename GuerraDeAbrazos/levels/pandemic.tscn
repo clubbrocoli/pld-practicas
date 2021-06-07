@@ -19,10 +19,10 @@ margin_left = -260.0
 margin_right = 260.0
 
 [node name="LevelTitle" parent="Intro/VBoxContainer" index="0"]
-text = "Pandemic !"
+text = "PANDEMICTITLE"
 
 [node name="HowToWin" parent="Intro/VBoxContainer" index="1"]
-text = "Avoid Everyone"
+text = "PANDEMICTIP"
 
 [node name="GUI" parent="." index="1"]
 lives = true

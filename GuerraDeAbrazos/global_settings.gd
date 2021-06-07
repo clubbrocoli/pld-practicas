@@ -10,6 +10,9 @@ var _settings = {
 	"display": {
 		"fullscreen": true,
 		"vsync": true,
+	},
+	"input": {
+		"locale": "es",
 	}
 }
 
@@ -22,6 +25,7 @@ func _ready():
 func apply_settings():
 	OS.set_window_fullscreen(_settings["display"]["fullscreen"])
 	OS.set_use_vsync(_settings["display"]["vsync"])
+	TranslationServer.set_locale(_settings["input"]["locale"])
 
 func save_settings():
 	for section in _settings.keys():
