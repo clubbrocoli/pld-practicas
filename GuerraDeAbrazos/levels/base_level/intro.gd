@@ -6,7 +6,7 @@ func _ready():
 	$IntroDuration.start()
 
 
-func _process(delta):
+func _process(_delta):
 	$VBoxContainer/Counter.set_text(String(ceil($IntroDuration.time_left)))
 
 

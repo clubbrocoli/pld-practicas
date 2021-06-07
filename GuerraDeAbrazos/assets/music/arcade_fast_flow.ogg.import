@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/arcade_fast_flow.ogg-fb7e0233dcde4f331b422b9af2307475.oggstr"
+
+[deps]
+
+source_file="res://assets/music/arcade_fast_flow.ogg"
+dest_files=[ "res://.import/arcade_fast_flow.ogg-fb7e0233dcde4f331b422b9af2307475.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

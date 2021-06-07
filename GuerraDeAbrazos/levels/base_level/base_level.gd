@@ -8,6 +8,8 @@ const Player = preload("res://actors/player/player.tscn")
 export var enable_time_limit: bool = true
 export var initial_score: int = 0
 
+onready var level_song = load("res://assets/music/arcade_fast_flow.ogg")
+
 var scores: Array
 var extra_scores: Array
 var score_obj_str: String
@@ -27,6 +29,10 @@ func init(devices, textures):
 		$GUI.update_score(i, initial_score)
 		scores.append(initial_score)
 		extra_scores.append(0)
+
+
+func _ready():
+	MusicPlayer.play_song(level_song)
 
 
 func _process(_delta):
@@ -52,7 +58,7 @@ func _on_hug_finished(body_a, body_b):
 
 # Returns wether this level is playable with a specific number of players
 # Useful to overwrite in child script
-func playable(n_players):
+func playable(_n_players):
 	return true
 
 
