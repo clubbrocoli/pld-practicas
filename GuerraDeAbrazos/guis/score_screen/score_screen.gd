@@ -1,11 +1,11 @@
 extends Control
 
 
-var scores: Array
+var _scores: Array
 
 
 func init(scores):
-	self.scores = scores
+	_scores = scores
 
 func _ready():
-	$Label.text = String(scores)
+	$Label.text = String(_scores)

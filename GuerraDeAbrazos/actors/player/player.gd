@@ -59,6 +59,7 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity)
 	else:
 		var motion = velocity * (1 - impulse_vel.length()/bomb_push)
+		# warning-ignore:return_value_discarded
 		move_and_slide(motion + impulse_vel)
 		impulse_vel = impulse_vel.move_toward(Vector2.ZERO, friction * delta)
 	

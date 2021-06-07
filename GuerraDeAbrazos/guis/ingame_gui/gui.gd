@@ -12,7 +12,7 @@ func _ready():
 	_change_icon()
 
 
-func _process(delta):
+func _process(_delta):
 	if Engine.editor_hint:
 		_change_icon()
 

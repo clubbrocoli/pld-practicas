@@ -17,7 +17,8 @@ func _on_Settings_pressed():
 
 func _on_Quit_pressed():
 	close()
-	get_tree().change_scene("res://guis/title_screen/title_screen.tscn")
+	if get_tree().change_scene("res://guis/title_screen/title_screen.tscn") != OK:
+		print("Unexpected error changing scene to leave a match")
 
 
 func open():

@@ -5,7 +5,7 @@ var n_players
 func _ready():
 	n_players = $YSort/Players.get_child_count()
 
-func _on_hug_finished(body_a, body_b):
+func _on_hug_finished(body_a, _body_b):
 	_add_to_score(body_a.id, -1)
 	if scores[body_a.id] == 0:
 		body_a.queue_free()

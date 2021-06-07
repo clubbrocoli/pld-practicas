@@ -46,7 +46,7 @@ tile_data = PoolIntArray( 4, 1, 0, 35, 1, 0, 65537, 3, 0, 65574, 3, 0, 1245185, 
 [node name="NPCManager" parent="." index="6"]
 npc_max_number = 10
 rng_speed = 10
-spawn_speedup = 5
+spawn_speedup = 1
 speed_speedup = 1
 
 [node name="NavigationPolygonInstance" parent="NPCManager" index="0"]

@@ -54,7 +54,6 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
 [connection signal="area_entered" from="CharacterDetectionArea" to="." method="_on_CharacterDetectionArea_area_entered"]
-[connection signal="area_shape_entered" from="ExplosionArea" to="." method="_on_ExplosionArea_area_shape_entered"]
 [connection signal="body_entered" from="ExplosionArea" to="." method="_on_Explosion_body_entered"]
 [connection signal="body_entered" from="PickUpArea" to="." method="_on_PickUpArea_body_entered"]
 [connection signal="timeout" from="ExplosionDuration" to="." method="_on_ExplosionDuration_timeout"]
