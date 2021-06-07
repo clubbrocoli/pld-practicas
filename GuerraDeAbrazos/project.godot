@@ -20,7 +20,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Settings="*res://global_settings.gd"
+Settings="*res://autoloads/global_settings.gd"
+MusicPlayer="*res://autoloads/music_player.tscn"
 
 [display]
 
@@ -338,6 +339,11 @@ dash_3={
 2d_physics/layer_3="Objects"
 2d_physics/layer_4="Bomb"
 2d_physics/layer_5="NPC"
+
+[locale]
+
+test="es"
+translations=PoolStringArray( "res://assets/translation/tr.en.translation", "res://assets/translation/tr.es.translation" )
 
 [rendering]
 

@@ -15,7 +15,6 @@ var textures: Array = []
 var disconnected_players: Array = []
 
 
-
 func _ready():
 	Input.connect("joy_connection_changed", self, "_on_joy_connection_changed")
 	
@@ -42,11 +41,10 @@ func _input(event):
 		elif not disconnected_players.empty():
 			add_player(device_id)
 	
-	# Check for leave by pressing CANCEL
-	if event.is_action_pressed("gui_cancel_joy"):
-		device_id = event.get_device()
-		if device_id in devices:
-			remove_player(device_id)
+	# Check for leave by pressing EXIT or CANCEL
+	if event.is_action_pressed("gui_menu") or event.is_action_pressed("gui_cancel_joy"):
+		if get_tree().change_scene("res://guis/title_screen/title_screen.tscn") != OK:
+			print("Unexpected error switching to TitleScreen scene")
 	
 	# Start game
 	if _beginnable() and event.is_action_pressed("gui_accept"):
@@ -80,7 +78,7 @@ func add_player(device_id):
 	textures[player_id] = player_panel.get_node("Sprite").get_texture()
 	
 	if _beginnable():
-		$Select/BeginHint/Label.visible = true
+		$Select/BeginHint/Label.text = "STARTTIP"
 
 
 func remove_player(device_id):
@@ -96,7 +94,8 @@ func remove_player(device_id):
 	textures[player_id] = null
 	
 	if not _beginnable():
-		$Select/BeginHint/Label.visible = false
+		$Select/BeginHint/Label.text = "BACKTIP"
+		
 
 
 func _beginnable():
