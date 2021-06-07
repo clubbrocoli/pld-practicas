@@ -10,10 +10,13 @@ EXITDESKTOP	EXIT TO DESKTOP	SALIR AL ESCRITORIO
 LEAVEGAME	LEAVE GAME	ABANDONAR PARTIDA
 JOINTIP	START / ENTER\n to Join	START / ENTER\n para Unirte
 STARTTIP	Press SPACE or CONFIRM to begin	Pulsa ESPACIO o CONFIRMAR para jugar
+BACKTIP	Press ESCAPE or CANCEL to go back	Pulsa ESCAPE o CANCELAR para volver
 FULLSCREEN	Fullscreen	Pantalla Completa
 VSYNC	Vsync	Vsync
 LANGUAGE	Language	Idioma
 SPANISH	Spanish – es	Español – es
 ENGLISH	English – en	Inglés – en
+MUSICVOL	Music	Música
+SFXVOL	Sound Effects	Efectos de Sonido
 PANDEMICTITLE	Pandemic !	Pandemia !
 PANDEMICTIP	Avoid Everyone	Evita a Todo el Mundo

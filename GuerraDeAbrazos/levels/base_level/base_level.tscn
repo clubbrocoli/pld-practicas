@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://NPCManager.gd" type="Script" id=1]
+[ext_resource path="res://levels/base_level/NPCManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=2]
 [ext_resource path="res://levels/base_level/base_level.gd" type="Script" id=3]
 [ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=4]
@@ -529,7 +529,6 @@ __meta__ = {
 [node name="RightPositions" type="Node" parent="NPCManager/NPCSpawns"]
 
 [node name="IncreaseSpawnRate" type="Timer" parent="NPCManager"]
-wait_time = 5.0
 autostart = true
 
 [node name="Respawns" type="Node" parent="."]
@@ -551,7 +550,7 @@ wait_time = 30.0
 one_shot = true
 
 [connection signal="animation_finished" from="Intro/AnimationPlayer" to="Intro" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="Intro/IntroDuration" to="Intro" method="_on_IntroDuration_timeout"]
 [connection signal="timeout" from="Intro/IntroDuration" to="." method="_on_IntroDuration_timeout"]
+[connection signal="timeout" from="Intro/IntroDuration" to="Intro" method="_on_IntroDuration_timeout"]
 [connection signal="timeout" from="NPCManager/IncreaseSpawnRate" to="NPCManager" method="_on_IncreaseSpawnRate_timeout"]
 [connection signal="timeout" from="TimeLimit" to="." method="_on_TimeLimit_timeout"]
