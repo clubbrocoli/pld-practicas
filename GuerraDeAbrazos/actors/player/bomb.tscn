@@ -1,7 +1,23 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://actors/player/bomb.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/characters/bullet.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=13]
+colors = PoolColorArray( 0.976471, 0, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 167.06
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 14.0
+color_ramp = SubResource( 14 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.0
@@ -15,10 +31,55 @@ radius = 64.0
 [sub_resource type="CircleShape2D" id=4]
 radius = 6.0
 
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 123, 127, 123 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 127, 123, 127, 123 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 254, 123, 127, 123 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 127, 123 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 127, 0, 127, 123 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 254, 0, 127, 123 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "running",
+"speed": 5.0
+} ]
+
 [node name="Bomb" type="KinematicBody2D"]
 collision_layer = 8
 collision_mask = 14
 script = ExtResource( 1 )
+
+[node name="ExplossionParticles" type="Particles2D" parent="."]
+emitting = false
+amount = 120
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 12 )
 
 [node name="ProjectileCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -49,10 +110,13 @@ disabled = true
 wait_time = 0.3
 one_shot = true
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 2 )
-
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.25, -1 )
+scale = Vector2( 0.375661, 0.377262 )
+frames = SubResource( 11 )
+animation = "running"
+frame = 1
+playing = true
 [connection signal="area_entered" from="CharacterDetectionArea" to="." method="_on_CharacterDetectionArea_area_entered"]
 [connection signal="body_entered" from="ExplosionArea" to="." method="_on_Explosion_body_entered"]
 [connection signal="body_entered" from="PickUpArea" to="." method="_on_PickUpArea_body_entered"]
