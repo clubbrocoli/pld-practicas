@@ -29,3 +29,7 @@ func open():
 func close():
 	get_tree().paused = false
 	hide()
+
+
+func _on_ExitDesktop_pressed():
+	get_tree().quit()
