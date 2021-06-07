@@ -23,6 +23,8 @@ func init(devices, textures):
 		player.connect("hug_finished", self, "_on_hug_finished")
 		$YSort/Players.add_child(player)
 		
+		$GUI.show_score(i)
+		$GUI.update_score(i, initial_score)
 		scores.append(initial_score)
 		extra_scores.append(0)
 
@@ -45,7 +47,18 @@ func _on_TimeLimit_timeout():
 # Overwrite this function to change what counts as a level point
 func _on_hug_finished(body_a, body_b):
 	if body_b.is_in_group("npcs"):
-		scores[body_a.id] += 1
+		_add_to_score(body_a.id, 1)
+
+
+# Returns wether this level is playable with a specific number of players
+# Useful to overwrite in child script
+func playable(n_players):
+	return true
+
+
+func _add_to_score(player_idx: int, score_change: int):
+	scores[player_idx] += score_change
+	$GUI.update_score(player_idx, scores[player_idx])
 
 
 # Overwrite this function to change win condition / win points
@@ -54,12 +67,6 @@ func _score_wins(score):
 		return 1
 	else:
 		return 0
-
-
-# Returns wether this level is playable with a specific number of players
-# Useful to overwrite in child script
-func playable(n_players):
-	return true
 
 
 func _end_level():
