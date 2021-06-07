@@ -10,9 +10,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.0
+margin_left = -90.0
 margin_top = -92.5
-margin_right = 80.0
+margin_right = 90.0
 margin_bottom = 92.5
 rect_min_size = Vector2( 160, 185 )
 script = ExtResource( 1 )
@@ -37,7 +37,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 160.0
+margin_right = 180.0
 margin_bottom = 27.0
 custom_fonts/font = ExtResource( 3 )
 text = "PAUSED"
@@ -45,14 +45,14 @@ align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 31.0
-margin_right = 160.0
+margin_right = 180.0
 margin_bottom = 41.0
 rect_min_size = Vector2( 0, 10 )
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
-margin_left = 40.0
+margin_left = 50.0
 margin_top = 45.0
-margin_right = 120.0
+margin_right = 130.0
 margin_bottom = 67.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
@@ -60,35 +60,36 @@ text = "CONTINUE"
 flat = true
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
-margin_left = 42.0
+margin_left = 54.0
 margin_top = 71.0
-margin_right = 117.0
+margin_right = 125.0
 margin_bottom = 93.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
-text = "SETTINGS"
+text = "OPTIONS"
 flat = true
 
-[node name="Controls" type="Button" parent="VBoxContainer"]
-margin_left = 38.0
+[node name="LeaveGame" type="Button" parent="VBoxContainer"]
+margin_left = 45.0
 margin_top = 97.0
-margin_right = 121.0
+margin_right = 135.0
 margin_bottom = 119.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
-text = "CONTROLS"
+text = "LEAVEGAME"
 flat = true
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
-margin_left = 58.0
+[node name="ExitDesktop" type="Button" parent="VBoxContainer"]
+margin_left = 38.0
 margin_top = 123.0
-margin_right = 101.0
+margin_right = 141.0
 margin_bottom = 145.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
-text = "QUIT"
+text = "EXITDESKTOP"
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/LeaveGame" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitDesktop" to="." method="_on_ExitDesktop_pressed"]
