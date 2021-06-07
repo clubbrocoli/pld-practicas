@@ -12,6 +12,7 @@ func start(pos, dir, speed, force, p_id):
 	push_force = force
 	parent_id = p_id
 	velocity = Vector2(speed, 0).rotated(dir)
+	$AnimatedSprite.rotation_degrees = dir
 
 
 func _physics_process(delta):
@@ -40,6 +41,8 @@ func _on_PickUpArea_body_entered(body):
 
 func explode():
 	detonated = true
+	$ExplossionParticles.emitting = true
+	$AnimatedSprite.animation = "idle"
 	$ExplosionArea/CollisionShape2D.set_deferred("disabled", false)
 	$ProjectileCollision.queue_free()
 	$ExplosionDuration.start()
