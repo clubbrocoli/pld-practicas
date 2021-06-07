@@ -11,12 +11,10 @@ var last_input = Vector2.ZERO
 var direction = Vector2.ZERO
 var hugging = false
 var hugging_body = null
-var animation
 var pushed = false
 
 
 func start(given_path, starting_position):
-	animation = "run"
 	path = given_path
 	position = starting_position
 	direction = position.direction_to(path[0])
@@ -35,16 +33,14 @@ func _physics_process(delta):
 		if distance_to_next_point > 1:
 			move_and_slide(direction * speed)
 			for index in get_slide_count():
-				var collision = get_slide_collision(index)
 				move_and_slide(direction.rotated(PI*randf())*speed*rand_range(1,3))
 				direction = position.direction_to(path[0])
 						
 			last_input = direction
-			change_animation(animation)
+			change_animation("run")
 		else:
 			# The player get to the next point
 			last_input = direction
-			change_animation(animation)
 			path.remove(0)
 			if path.size() <= 0:
 				queue_free()
