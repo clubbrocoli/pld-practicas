@@ -5,6 +5,7 @@ export var speed = 40
 export var friction = 1500
 export var hug_push = 500
 
+
 var path: = PoolVector2Array()
 var impulse_vel = Vector2.ZERO
 var last_input = Vector2.ZERO
@@ -12,11 +13,15 @@ var direction = Vector2.ZERO
 var hugging = false
 var hugging_body = null
 var pushed = false
+ 
 
 
-func start(given_path, starting_position):
+
+
+func start(given_path, starting_position, texture):
 	path = given_path
 	position = starting_position
+	$Sprite.texture = texture
 	direction = position.direction_to(path[0])
 
 
