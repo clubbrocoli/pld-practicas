@@ -4,6 +4,7 @@ extends KinematicBody2D
 signal hug_finished(body_a, body_b)
 
 const Bomb = preload("res://actors/player/bomb.tscn")
+const HugParticles = preload("res://actors/HugParticles.tscn")
 
 export var max_speed = 200
 export var accel = 1500
@@ -150,6 +151,8 @@ func hug(body):
 		
 		$AnimationTree.set("parameters/Idle/blend_position", position.direction_to(body.position))
 		change_animation("idle")
+		var hug_particle = HugParticles.instance()
+		self.add_child(hug_particle)
 		$HugDuration.start()
 
 
@@ -157,6 +160,7 @@ func _on_HugDuration_timeout():
 	impulse_vel = hugging_body.position.direction_to(position) * hug_push
 	set_physics_process(true)
 	set_process_input(true)
+	$HugParticles.queue_free()
 	$HugUnvulnerability.start()
 	emit_signal("hug_finished", self, hugging_body)
 
