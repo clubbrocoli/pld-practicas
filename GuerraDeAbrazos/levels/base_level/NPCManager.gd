@@ -6,12 +6,20 @@ export var npc_max_number: int = 5
 export var rng_speed: int = 0
 export var spawn_speedup: int = 0
 export var speed_speedup: int = 0
+export var skin_number = 4
 
 var npc_number = 0
-
+var skins_format_string = "res://assets/characters/Ejecutivo_%s_16x16.png"
+var skins = []
 onready var locations = $NPCSpawns.get_children() 
 onready var npc_list = get_node("../YSort/NPCList")
 
+
+func _ready():
+	for numb in range(0,skin_number):
+		var skin_str = skins_format_string % numb
+		skins.append(load(skin_str))
+		
 
 func _process(_delta):
 	while(npc_list.get_child_count() < npc_max_number):
@@ -32,7 +40,7 @@ func create_new_npc():
 	
 	var npc = NPC.instance()
 	
-	npc.start(npc_path, spawn_position)
+	npc.start(npc_path, spawn_position, skins[randi() % skin_number])
 	npc.speed += randi() % rng_speed
 	npc_list.add_child(npc)
 
