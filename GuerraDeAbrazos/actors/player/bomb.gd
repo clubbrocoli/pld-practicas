@@ -12,7 +12,8 @@ func start(pos, dir, speed, force, p_id):
 	push_force = force
 	parent_id = p_id
 	velocity = Vector2(speed, 0).rotated(dir)
-	$AnimatedSprite.rotation_degrees = dir
+	self.rotation = velocity.angle()
+	
 
 
 func _physics_process(delta):
