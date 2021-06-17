@@ -4,7 +4,7 @@ extends Node
 const ScoreScreen = preload("res://guis/score_screen/score_screen.tscn")
 
 export var score_objective: int = 3
-export var max_levels: int = 0
+export var max_levels: int = 3
 
 var _scores: Array
 var _devices: Array
@@ -26,6 +26,13 @@ func _ready():
 	_load_next_level()
 
 
+func get_scores_dict(score,texture):
+	var dict = []
+	for i in range(len(score)):
+		dict.append({"score": score[i] , "texture": texture[i]})
+		
+	return dict
+
 func _on_Level_finished(extra_scores):
 	# Update Scores
 	for i in _scores.size():
@@ -39,7 +46,12 @@ func _on_Level_finished(extra_scores):
 	if max_levels != 0 and _levels_played >= max_levels:
 		_end_game()
 	
-	_load_next_level()
+	var scores_screen = ScoreScreen.instance()
+	var scores_dict = get_scores_dict(_scores,_textures)
+	scores_screen.init(scores_dict, false, self)
+	get_tree().get_root().add_child(scores_screen)
+	get_tree().set_current_scene(scores_screen)
+	
 
 
 func _generate_level_list():
@@ -70,6 +82,7 @@ func _load_next_level():
 		_levels_played += 1
 		level.init(_devices, _textures)
 		level.connect("finished", self, "_on_Level_finished")
+		get_tree().set_current_scene(level)
 		add_child(level)
 	else:
 		_load_next_level()
@@ -78,7 +91,8 @@ func _load_next_level():
 func _end_game():
 	# Instance _scores screen and free self
 	var scores_screen = ScoreScreen.instance()
-	scores_screen.init(_scores)
+	var scores_dict = get_scores_dict(_scores,_textures)
+	scores_screen.init(scores_dict, false, self)
 	get_tree().get_root().add_child(scores_screen)
 	get_tree().set_current_scene(scores_screen)
 	queue_free()

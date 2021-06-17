@@ -1,21 +1,70 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://guis/score_screen/score_screen.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/montserrat_eb_big.tres" type="DynamicFont" id=2]
 
 [node name="ScoreScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 189.436 ]
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.062
+anchor_right = 0.5
+anchor_bottom = 0.062
+margin_left = -85.2756
+margin_top = -15.1398
+margin_right = 35.7244
+margin_bottom = 32.8602
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 2 )
+text = "SCORES"
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="Podium" type="Control" parent="."]
+margin_left = 115.707
+margin_top = 43.6066
+margin_right = 573.707
+margin_bottom = 305.607
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.062
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
+anchor_bottom = 0.062
+margin_left = -104.319
+margin_top = 270.094
+margin_right = 116.681
+margin_bottom = 327.094
+custom_fonts/font = ExtResource( 2 )
+text = "Start for new game
+Exit for game menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePositions" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="First" type="Position2D" parent="ScorePositions"]
+position = Vector2( 189.246, 80.3762 )
+
+[node name="Second" type="Position2D" parent="ScorePositions"]
+position = Vector2( 189.953, 133.409 )
+
+[node name="Third" type="Position2D" parent="ScorePositions"]
+position = Vector2( 188.539, 198.463 )
+
+[node name="Fourth" type="Position2D" parent="ScorePositions"]
+position = Vector2( 189.953, 257.153 )

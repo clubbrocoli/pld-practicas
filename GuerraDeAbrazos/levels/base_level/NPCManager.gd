@@ -3,7 +3,7 @@ extends Navigation2D
 const NPC = preload("res://actors/npcs/npc.tscn")
 
 export var npc_max_number: int = 5
-export var rng_speed: int = 20
+export var rng_speed: int = 0
 export var spawn_speedup: int = 0
 export var speed_speedup: int = 0
 export var skin_number = 4
