@@ -548,9 +548,8 @@ position = Vector2( 544, 264 )
 [node name="TimeLimit" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
-
 [connection signal="animation_finished" from="Intro/AnimationPlayer" to="Intro" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="Intro/IntroDuration" to="." method="_on_IntroDuration_timeout"]
 [connection signal="timeout" from="Intro/IntroDuration" to="Intro" method="_on_IntroDuration_timeout"]
+[connection signal="timeout" from="Intro/IntroDuration" to="." method="_on_IntroDuration_timeout"]
 [connection signal="timeout" from="NPCManager/IncreaseSpawnRate" to="NPCManager" method="_on_IncreaseSpawnRate_timeout"]
 [connection signal="timeout" from="TimeLimit" to="." method="_on_TimeLimit_timeout"]
