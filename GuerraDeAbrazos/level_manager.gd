@@ -12,6 +12,7 @@ var _textures: Array
 var _levels: Array
 var _current_level: int = 0
 var _levels_played: int = 0
+var _game_ended: bool = false
 
 
 func init(devices, textures):
@@ -46,11 +47,12 @@ func _on_Level_finished(extra_scores):
 	if max_levels != 0 and _levels_played >= max_levels:
 		_end_game()
 	
-	var scores_screen = ScoreScreen.instance()
-	var scores_dict = get_scores_dict(_scores,_textures)
-	scores_screen.init(scores_dict, false, self)
-	get_tree().get_root().add_child(scores_screen)
-	get_tree().set_current_scene(scores_screen)
+	if not _game_ended:
+		var scores_screen = ScoreScreen.instance()
+		var scores_dict = get_scores_dict(_scores,_textures)
+		scores_screen.init(scores_dict, false, self)
+		get_tree().get_root().add_child(scores_screen)
+		get_tree().set_current_scene(scores_screen)
 	
 
 
@@ -70,19 +72,18 @@ func _generate_level_list():
 
 
 func _load_next_level():
+	var level = load("res://levels/" + _levels[_current_level]).instance()
+	
 	_current_level += 1
 	
 	if _current_level >= _levels.size():
 		_levels.shuffle()
 		_current_level = 0
 	
-	var level = load("res://levels/" + _levels[_current_level]).instance()
-	
 	if level.playable(_devices.size()):
 		_levels_played += 1
 		level.init(_devices, _textures)
 		level.connect("finished", self, "_on_Level_finished")
-		get_tree().set_current_scene(level)
 		add_child(level)
 	else:
 		_load_next_level()
@@ -90,9 +91,10 @@ func _load_next_level():
 
 func _end_game():
 	# Instance _scores screen and free self
+	_game_ended = true
 	var scores_screen = ScoreScreen.instance()
 	var scores_dict = get_scores_dict(_scores,_textures)
-	scores_screen.init(scores_dict, false, self)
+	scores_screen.init(scores_dict, true, self)
 	get_tree().get_root().add_child(scores_screen)
 	get_tree().set_current_scene(scores_screen)
 	queue_free()

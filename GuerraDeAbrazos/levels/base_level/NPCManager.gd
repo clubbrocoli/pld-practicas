@@ -41,7 +41,8 @@ func create_new_npc():
 	var npc = NPC.instance()
 	
 	npc.start(npc_path, spawn_position, skins[randi() % skin_number])
-	npc.speed += randi() % rng_speed
+	if rng_speed != 0:
+		npc.speed += randi() % rng_speed
 	npc_list.add_child(npc)
 
 
