@@ -16,9 +16,12 @@ onready var npc_list = get_node("../YSort/NPCList")
 
 
 func _ready():
-	for numb in range(0,skin_number):
-		var skin_str = skins_format_string % numb
-		skins.append(load(skin_str))
+	if npc_max_number == 0:
+		set_process(false)
+	else:
+		for numb in range(0,skin_number):
+			var skin_str = skins_format_string % numb
+			skins.append(load(skin_str))
 		
 
 func _process(_delta):
