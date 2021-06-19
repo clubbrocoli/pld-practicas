@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/gui/star.png" type="Texture" id=2]
 [ext_resource path="res://guis/score_screen/score.gd" type="Script" id=3]
+[ext_resource path="res://assets/characters/Alex_16x16.png" type="Texture" id=4]
 
 [sub_resource type="ParticlesMaterial" id=1]
 flag_disable_z = true
@@ -14,30 +15,51 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.2
 
-[node name="Score" type="Node2D"]
+[node name="Score" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource( 3 )
-
-[node name="ScoreLabel" type="Label" parent="."]
-margin_left = 15.1276
-margin_top = -7.15118
-margin_right = 54.1276
-margin_bottom = 8.84882
-custom_fonts/font = ExtResource( 1 )
-text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.0
+margin_top = -8.0
+margin_right = -17.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 1 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 32, 4 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+hframes = 24
+vframes = 7
+frame = 3
+
 [node name="WinnerParticles" type="Particles2D" parent="."]
-position = Vector2( -0.0350771, -3.54277 )
-emitting = false
+position = Vector2( 32, 28 )
 amount = 5
-lifetime = 5.0
+lifetime = 3.0
+speed_scale = 6.0
 randomness = 1.0
 process_material = SubResource( 1 )
 texture = ExtResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="."]
-vframes = 7
-hframes = 24
-frame = 20

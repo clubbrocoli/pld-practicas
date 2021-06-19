@@ -205,4 +205,5 @@ position = Vector2( 544, 288 )
 [node name="CachondeoDuration" type="Timer" parent="." index="8"]
 wait_time = 2.5
 one_shot = true
+
 [connection signal="timeout" from="CachondeoDuration" to="." method="_on_CachondeoDuration_timeout"]

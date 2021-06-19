@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 
 const Score = preload("res://guis/score_screen/score.tscn")
 
@@ -16,9 +16,7 @@ func init(scores, is_final, level_manager):
 	positions = $ScorePositions.get_children()
 
 func _input(event):
-	var device_id = null
 	
-	# Check for join/leave by pressing START
 	if event.is_action_pressed("start_joypad"):
 		start()
 	elif event.is_action_pressed("start_keyboard_1"):
@@ -36,10 +34,10 @@ func _ready():
 	
 	_scores.sort_custom(self,"sort_scores")
 	for i in range(_scores.size()):
-		var score = Score.instance()
 		var score_dict = _scores[i]
-		score.init(score_dict['score'], score_dict['texture'], positions[i].position, i == 0)
-		$Podium.add_child(score);
+		var score = $Podium.get_child(i);
+		score.init(score_dict['score'], score_dict['texture'], i == 0)
+		score.show()
 		
 func start():
 	if (_is_final):
