@@ -5,6 +5,7 @@ onready var intro_song = preload("res://assets/music/intro.ogg")
 
 
 func _ready():
+	randomize()
 	if not MusicPlayer.stream == intro_song:
 		MusicPlayer.play_song(intro_song)
 	$Menu/Buttons/Play.grab_focus()

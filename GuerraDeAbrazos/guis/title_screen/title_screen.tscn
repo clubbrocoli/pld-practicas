@@ -4,10 +4,10 @@
 [ext_resource path="res://guis/title_screen/menu_button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/fonts/montserrat_eb_small.tres" type="DynamicFont" id=4]
-[ext_resource path="res://areas/ground.tres" type="TileSet" id=5]
+[ext_resource path="res://areas/tilesets/ground.tres" type="TileSet" id=5]
 [ext_resource path="res://guis/title_screen/title_screen.gd" type="Script" id=6]
-[ext_resource path="res://areas/vertical_obstacles.tres" type="TileSet" id=7]
-[ext_resource path="res://areas/boxy_obstacles.tres" type="TileSet" id=8]
+[ext_resource path="res://areas/tilesets/vertical_obstacles.tres" type="TileSet" id=7]
+[ext_resource path="res://areas/tilesets/boxy_obstacles.tres" type="TileSet" id=8]
 [ext_resource path="res://assets/tiles/CP_V1.0.4.png" type="Texture" id=9]
 [ext_resource path="res://actors/player/player.tscn" type="PackedScene" id=10]
 
